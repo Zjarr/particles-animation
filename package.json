@@ -1,0 +1,30 @@
+{
+  "name": "particles-animation",
+  "version": "1.0.0",
+  "description": "Particles animation made with pure JS and Canvas",
+  "main": "index.html",
+  "scripts": {
+    "start": "open index.html",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zjarr/particles-animation.git"
+  },
+  "keywords": [
+    "Vainilla",
+    "JS",
+    "Canvas",
+    "Animation",
+    "Particles"
+  ],
+  "author": "Zjarr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zjarr/particles-animation/issues"
+  },
+  "homepage": "https://github.com/Zjarr/particles-animation#readme",
+  "devDependencies": {
+    "open-cli": "^7.2.0"
+  }
+}
