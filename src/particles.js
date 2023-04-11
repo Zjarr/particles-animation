@@ -2,8 +2,6 @@
   const canvas = document.querySelector('.particles');
   const ctx = canvas.getContext('2d');
 
-  let containerHeight;
-  let containerWidth;
   let animationReq;
 
   /**
