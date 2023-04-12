@@ -94,6 +94,10 @@
     canvas.width = parseInt(styles.getPropertyValue('width'), 10);
   };
 
+  const setCanvasColor = () => {
+    canvas.style.backgroundColor = backgroundColor;
+  }
+
   const setLineMaxSize = () => {
     // TODO: Improve based on are and particle amount
     lineMaxSize = (canvas.height * canvas.width) * (0.012 / particleAmount);
@@ -130,6 +134,7 @@
 
   if (areParamsCorrect) {
     setCanvasSize();
+    setCanvasColor();
     setLineMaxSize();
     drawCanvas();
     initEvents();

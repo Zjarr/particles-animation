@@ -7,6 +7,8 @@ const particleMinSize = 2;
 const particleMaxSize = 4;
 
 const particleOpacity = 1;
-const particleColor = `rgb(0, 0, 0)`;
+const particleColor = 'rgb(0, 0, 0)';
 
-const lineColor = `rgb(0, 0, 0)`;
+const lineColor = 'rgb(0, 0, 0)';
+
+const backgroundColor = 'rgb(255, 0, 0)';
