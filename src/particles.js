@@ -3,6 +3,7 @@
   const ctx = canvas.getContext('2d');
 
   let animationReq;
+  let lineMaxSize;
 
   /**
    * Built particles.
@@ -24,7 +25,7 @@
   const getLineColor = (lineSize) => {
     const result = 1 - (lineSize / lineMaxSize);
 
-    return `rgba(255, 255, 255, ${result})`;
+    return rgbToRgba(lineColor, result);
   };
 
   const drawLines = (particle) => {
@@ -43,7 +44,7 @@
 
   const drawParticle = (particle) => {
     ctx.beginPath();
-    ctx.fillStyle = particleColor;
+    ctx.fillStyle = rgbToRgba(particleColor, particleOpacity);
     ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
     ctx.fill();
     ctx.closePath();
@@ -93,10 +94,12 @@
     canvas.width = parseInt(styles.getPropertyValue('width'), 10);
   };
 
+  const setLineMaxSize = () => {
+    // TODO: Improve based on are and particle amount
+    lineMaxSize = (canvas.height * canvas.width) * (0.012 / particleAmount);
+  };
 
   const drawCanvas = () => {
-    setCanvasSize();
-
     createParticles();
     animateParticles();
   };
@@ -106,6 +109,9 @@
     window.cancelAnimationFrame(animationReq);
 
     clearCanvas();
+
+    setCanvasSize();
+    setLineMaxSize();
     drawCanvas();
   }
 
@@ -113,6 +119,12 @@
     window.onresize = resetCanvas;
   };
 
-  drawCanvas();
-  initEvents();
+  const areParamsCorrect = checkParams();
+
+  if (areParamsCorrect) {
+    setCanvasSize();
+    setLineMaxSize();
+    drawCanvas();
+    initEvents();
+  }
 })();
