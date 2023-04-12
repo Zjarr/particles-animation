@@ -115,8 +115,15 @@
     drawCanvas();
   }
 
+  const addAditionalParticle = (event) => {
+    const particle = { x: event.clientX, y: event.clientY, size: particleMaxSize, dx: 0, dy: 0 }
+
+    particles.length === particleAmount ? particles.push(particle) : particles[particleAmount] = particle;
+  }
+
   const initEvents = () => {
     window.onresize = resetCanvas;
+    window.onmousemove = addAditionalParticle;
   };
 
   const areParamsCorrect = checkParams();
